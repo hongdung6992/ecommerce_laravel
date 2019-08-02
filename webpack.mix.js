@@ -35,4 +35,5 @@ mix.js('resources/js/app.js', 'public/js')
         'public/plugins/datatables/dataTables.bootstrap4.min.js',
         'public/plugins/waypoints/lib/jquery.waypoints.min.js',
         'public/plugins/counterup/jquery.counterup.min.js'
-    ], 'public/js/all.js');
+    ], 'public/js/all.js')
+    .version();

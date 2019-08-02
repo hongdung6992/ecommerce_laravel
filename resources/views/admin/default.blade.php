@@ -8,8 +8,8 @@
 	<meta name="author" content="Pike Web Development - https://www.pikephp.com">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>@yield('title')</title>
-	<link rel="stylesheet" href="{{ asset('css/all.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+	<link rel="stylesheet" href="{{ mix('css/all.css') }}">
+	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
@@ -42,8 +42,8 @@
 
 	</div>
 
-	<script src="{{ asset('js/all.js') }}"></script>
-	<script src="{{ asset('js/app.js') }}"></script>
+	<script src="{{ mix('js/all.js') }}"></script>
+	<script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
