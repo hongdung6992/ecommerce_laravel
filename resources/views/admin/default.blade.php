@@ -18,16 +18,16 @@
 	<div id="main">
 
 		<!-- top bar navigation -->
-		@include('admin.layout.topbar')
+		@include('admin.partials.topbar')
 
 		<!-- Left Sidebar -->
-		@include('admin.layout.sidebar')
+		@include('admin.partials.sidebar')
 
 		<div class="content-page">
 			@yield('content')
 		</div>
 
-		@include('admin.layout.footer')
+		@include('admin.partials.footer')
 
 	</div>
 </body>

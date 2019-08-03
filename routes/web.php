@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,5 +13,16 @@
 */
 
 Route::get('/', function () {
-    return view('admin.dashboard.index');
+    return view('welcome');
 });
+
+Auth::routes();
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'DashboardController@index');
+    Route::prefix('users')->group(function(){
+       
+    });
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
