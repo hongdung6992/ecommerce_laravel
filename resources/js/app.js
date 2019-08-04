@@ -1,5 +1,6 @@
 require('./common');
 
+
 $(document).ready(function () {
   // data-tables
   $('#example1').DataTable();

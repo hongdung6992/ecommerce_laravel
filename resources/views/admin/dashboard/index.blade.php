@@ -18,6 +18,7 @@
 				</div>
 			</div>
 		</div>
+		@include('admin.partials.message')
 		<!-- end row -->
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">

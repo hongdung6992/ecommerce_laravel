@@ -17,6 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
         'public/css/bootstrap.min.css',
         'public/css/style.css',
         'public/plugins/datatables/dataTables.bootstrap4.min.css',
+        'public/plugins/datatables/switchery/switchery.min.css',
         'public/font/css/font-awesome.min.css'
     ], 'public/css/all.css')
     .scripts([
@@ -29,10 +30,12 @@ mix.js('resources/js/app.js', 'public/js')
         'public/js/fastclick.js',
         'public/js/jquery.blockUI.js',
         'public/js/jquery.nicescroll.js',
+        'public/js/jquery.scrollTo.min.js',
         'public/js/pikeadmin.js',
         'public/plugins/chart.js/chart.min.js',
         'public/plugins/datatables/jquery.dataTables.min.js',
         'public/plugins/datatables/dataTables.bootstrap4.min.js',
+        'public/plugins/switchery/switchery.min.js',
         'public/plugins/waypoints/lib/jquery.waypoints.min.js',
         'public/plugins/counterup/jquery.counterup.min.js'
     ], 'public/js/all.js')

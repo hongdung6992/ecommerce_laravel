@@ -145,7 +145,7 @@
           </a>
 
           <!-- item-->
-          <a href="#" class="dropdown-item notify-item">
+          <a href="{{ route('logout') }}" class="dropdown-item notify-item">
             <i class="fa fa-power-off"></i> <span>Logout</span>
           </a>
 
