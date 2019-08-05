@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "register": "Đăng ký",
+    "remember_password": "Ghi nhớ mật khẩu",
+    "forget_password": "Quên mật khẩu",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "email_password": "Email hoặc mật khẩu",
+    "have_account": "Chưa có tài khoản?"
+  },
+  "validate": {
+    "required": "không được để trống",
+    "invalid": "không hợp lệ"
+  },
+  "message": {
+    "success": ":param thành công",
+    "false": ":param không đúng"
+  }
+}

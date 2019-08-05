@@ -33,16 +33,16 @@ class LoginRequest extends FormRequest
   public function attributes()
   {
     return [
-      'email' => 'Email',
-      'password' => 'Mật khẩu'
+      'email' => t('auth.email'),
+      'password' => t('auth.password')
     ];
   }
 
   public function messages()
   {
     return [
-      '*.required' => ':attribute không được để trống',
-      'email.email' => ':attribute  không hợp lệ',
+      '*.required' => ':attribute ' . t('validate.required'),
+      'email.email' => ':attribute ' . t('validate.invalid'),
     ];
   }
 }
