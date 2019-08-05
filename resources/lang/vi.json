@@ -1,4 +1,16 @@
 {
+  "home": "Trang chủ",
+  "dashboard": "Bảng điều khiển",
+  "shared": {
+    "stt": "STT", 
+    "save": "Lưu",
+    "back": "Quay lại"
+  },
+  "status": {
+    "active": "Kích hoạt",
+    "yes": "Có",
+    "no": "Không"
+  },
   "auth": {
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
@@ -17,5 +29,24 @@
   "message": {
     "success": ":param thành công",
     "false": ":param không đúng"
+  },
+  "user": {
+    "manage": "Quản lý người dùng",
+    "create": "Thêm mới người dùng",
+    "edit": "Chỉnh sửa người dùng",
+    "add": "Thêm mới",
+    "update": "Chỉnh sửa",
+    "delete": "Xóa",
+    "list": "Danh sách người dùng",
+    "name": "Họ và tên",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "role": "Vai trò",
+    "action": "Xử lý",
+    "placeholder": {
+      "name": "Nhập họ và tên",
+      "email": "Nhập địa chỉ email",
+      "phone": "Nhập số điện thoại"
+    }
   }
 }

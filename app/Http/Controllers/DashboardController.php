@@ -9,6 +9,7 @@ class DashboardController extends Controller
 {
   public function index()
   {
-    return view('admin.dashboard.index');
+    $breadcrumbs = ['parent' => t('dashboard')];
+    return view('admin.dashboard.index', compact('breadcrumbs'));
   }
 }

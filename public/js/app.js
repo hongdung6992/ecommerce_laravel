@@ -95,76 +95,102 @@
 
 __webpack_require__(/*! ./common */ "./resources/js/common.js");
 
-$(document).ready(function () {
-  // data-tables
-  $('#example1').DataTable(); // counter-up
-
-  $('.counter').counterUp({
-    delay: 10,
-    time: 600
-  });
-});
-var ctx1 = document.getElementById("lineChart").getContext('2d');
-var lineChart = new Chart(ctx1, {
-  type: 'bar',
-  data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: 'Dataset 1',
-      backgroundColor: '#3EB9DC',
-      data: [10, 14, 6, 7, 13, 9, 13, 16, 11, 8, 12, 9]
-    }, {
-      label: 'Dataset 2',
-      backgroundColor: '#EBEFF3',
-      data: [12, 14, 6, 7, 13, 6, 13, 16, 10, 8, 11, 12]
-    }]
-  },
-  options: {
-    tooltips: {
-      mode: 'index',
-      intersect: false
-    },
-    responsive: true,
-    scales: {
-      xAxes: [{
-        stacked: true
-      }],
-      yAxes: [{
-        stacked: true
-      }]
-    }
-  }
-});
-var ctx2 = document.getElementById("pieChart").getContext('2d');
-var pieChart = new Chart(ctx2, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-      label: 'Dataset 1'
-    }],
-    labels: ["Red", "Orange", "Yellow", "Green", "Blue"]
-  },
-  options: {
-    responsive: true
-  }
-});
-var ctx3 = document.getElementById("doughnutChart").getContext('2d');
-var doughnutChart = new Chart(ctx3, {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
-      label: 'Dataset 1'
-    }],
-    labels: ["Red", "Orange", "Yellow", "Green", "Blue"]
-  },
-  options: {
-    responsive: true
-  }
-});
+__webpack_require__(/*! ./datatable */ "./resources/js/datatable.js"); // $(document).ready(function () {
+//   // data-tables
+//   $('#example1').DataTable();
+//   // counter-up
+//   $('.counter').counterUp({
+//     delay: 10,
+//     time: 600
+//   });
+// });
+// var ctx1 = document.getElementById("lineChart").getContext('2d');
+// var lineChart = new Chart(ctx1, {
+//   type: 'bar',
+//   data: {
+//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+//     datasets: [{
+//       label: 'Dataset 1',
+//       backgroundColor: '#3EB9DC',
+//       data: [10, 14, 6, 7, 13, 9, 13, 16, 11, 8, 12, 9]
+//     }, {
+//       label: 'Dataset 2',
+//       backgroundColor: '#EBEFF3',
+//       data: [12, 14, 6, 7, 13, 6, 13, 16, 10, 8, 11, 12]
+//     }]
+//   },
+//   options: {
+//     tooltips: {
+//       mode: 'index',
+//       intersect: false
+//     },
+//     responsive: true,
+//     scales: {
+//       xAxes: [{
+//         stacked: true,
+//       }],
+//       yAxes: [{
+//         stacked: true
+//       }]
+//     }
+//   }
+// });
+// var ctx2 = document.getElementById("pieChart").getContext('2d');
+// var pieChart = new Chart(ctx2, {
+//   type: 'pie',
+//   data: {
+//     datasets: [{
+//       data: [12, 19, 3, 5, 2, 3],
+//       backgroundColor: [
+//         'rgba(255,99,132,1)',
+//         'rgba(54, 162, 235, 1)',
+//         'rgba(255, 206, 86, 1)',
+//         'rgba(75, 192, 192, 1)',
+//         'rgba(153, 102, 255, 1)',
+//         'rgba(255, 159, 64, 1)'
+//       ],
+//       label: 'Dataset 1'
+//     }],
+//     labels: [
+//       "Red",
+//       "Orange",
+//       "Yellow",
+//       "Green",
+//       "Blue"
+//     ]
+//   },
+//   options: {
+//     responsive: true
+//   }
+// });
+// var ctx3 = document.getElementById("doughnutChart").getContext('2d');
+// var doughnutChart = new Chart(ctx3, {
+//   type: 'doughnut',
+//   data: {
+//     datasets: [{
+//       data: [12, 19, 3, 5, 2, 3],
+//       backgroundColor: [
+//         'rgba(255,99,132,1)',
+//         'rgba(54, 162, 235, 1)',
+//         'rgba(255, 206, 86, 1)',
+//         'rgba(75, 192, 192, 1)',
+//         'rgba(153, 102, 255, 1)',
+//         'rgba(255, 159, 64, 1)'
+//       ],
+//       label: 'Dataset 1'
+//     }],
+//     labels: [
+//       "Red",
+//       "Orange",
+//       "Yellow",
+//       "Green",
+//       "Blue"
+//     ]
+//   },
+//   options: {
+//     responsive: true
+//   }
+// });
 
 /***/ }),
 
@@ -175,7 +201,99 @@ var doughnutChart = new Chart(ctx3, {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+$(document).ready(function () {
+  $('.delay').delay(2000).fadeOut(2000);
+});
 
+/***/ }),
+
+/***/ "./resources/js/datatable.js":
+/*!***********************************!*\
+  !*** ./resources/js/datatable.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $('#example1').DataTable();
+}); // END CODE FOR BASIC DATA TABLE 
+// START CODE FOR Child rows (show extra / detailed information) DATA TABLE 
+
+function format(d) {
+  // `d` is the original data object for the row
+  return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' + '<tr>' + '<td>Full name:</td>' + '<td>' + d.name + '</td>' + '</tr>' + '<tr>' + '<td>Extension number:</td>' + '<td>' + d.extn + '</td>' + '</tr>' + '<tr>' + '<td>Extra info:</td>' + '<td>And any further details here (images etc)...</td>' + '</tr>' + '</table>';
+}
+
+$(document).ready(function () {
+  var table = $('#example2').DataTable({
+    "ajax": "assets/data/dataTablesObjects.txt",
+    "columns": [{
+      "className": 'details-control',
+      "orderable": false,
+      "data": null,
+      "defaultContent": ''
+    }, {
+      "data": "name"
+    }, {
+      "data": "position"
+    }, {
+      "data": "office"
+    }, {
+      "data": "salary"
+    }],
+    "order": [[1, 'asc']]
+  }); // Add event listener for opening and closing details
+
+  $('#example2 tbody').on('click', 'td.details-control', function () {
+    var tr = $(this).closest('tr');
+    var row = table.row(tr);
+
+    if (row.child.isShown()) {
+      // This row is already open - close it
+      row.child.hide();
+      tr.removeClass('shown');
+    } else {
+      // Open this row
+      row.child(format(row.data())).show();
+      tr.addClass('shown');
+    }
+  });
+}); // END CODE FOR Child rows (show extra / detailed information) DATA TABLE 		
+// START CODE Show / hide columns dynamically DATA TABLE 		
+
+$(document).ready(function () {
+  var table = $('#example3').DataTable({
+    "scrollY": "350px",
+    "paging": false
+  });
+  $('a.toggle-vis').on('click', function (e) {
+    e.preventDefault(); // Get the column API object
+
+    var column = table.column($(this).attr('data-column')); // Toggle the visibility
+
+    column.visible(!column.visible());
+  });
+}); // END CODE Show / hide columns dynamically DATA TABLE 	
+// START CODE Individual column searching (text inputs) DATA TABLE 		
+
+$(document).ready(function () {
+  // Setup - add a text input to each footer cell
+  $('#example4 thead th').each(function () {
+    var title = $(this).text();
+    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+  }); // DataTable
+
+  var table = $('#example4').DataTable(); // Apply the search
+
+  table.columns().every(function () {
+    var that = this;
+    $('input', this.header()).on('keyup change', function () {
+      if (that.search() !== this.value) {
+        that.search(this.value).draw();
+      }
+    });
+  });
+});
 
 /***/ }),
 

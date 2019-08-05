@@ -1,23 +1,9 @@
 @extends('admin.default')
-@section('title') Bảng điều khiển @endsection
-@section('breadcrumb')
-<h1 class="main-title float-left">Bảng điều khiển</h1>
-<ol class="breadcrumb float-right">
-	<li class="breadcrumb-item">Trang chủ</li>
-	<li class="breadcrumb-item active">Bảng điều khiển</li>
-</ol>
-@endsection
+@section('title') {{ t('dashboard') }} @endsection
 @section('content')
 <div class="content">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xl-12">
-				<div class="breadcrumb-holder">
-					@yield('breadcrumb')
-					<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
+		@include('admin.partials.breadcrumb')
 		@include('admin.partials.message')
 		<!-- end row -->
 		<div class="row">

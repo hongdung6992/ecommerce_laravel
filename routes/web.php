@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 // Route::get('login', 'AdminController@login');
@@ -26,7 +27,15 @@ Route::get('logout', 'AdminController@logout')->name('logout');
 // Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/', 'DashboardController@index')->name('dashboard');
+  Route::get('/', 'DashboardController@index')->name('dashboard');
+  Route::group(['prefix' => 'user'], function () {
+    Route::get('/', 'UserController@index');
+    Route::get('create', 'UserController@create');
+    Route::post('create', 'UserController@store')->name('user.store');
+    Route::get('edit/{id}', 'UserController@edit');
+    Route::put('edit/{id}', 'Usercontroller@update')->name('user.update');
+    Route::delete('delete/{id}', 'UserController@destroy');
+  });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

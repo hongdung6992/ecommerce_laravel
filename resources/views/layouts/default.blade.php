@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="auth">
 
 <head>
   <title>@yield('title')</title>
@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ mix('css/all.css') }}">
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <script src="{{ mix('js/all.js') }}" defer></script>
+  <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
 <body class="auth">
