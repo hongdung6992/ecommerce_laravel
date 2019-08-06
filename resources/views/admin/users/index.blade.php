@@ -9,9 +9,9 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<span class="pull-right">
-							<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_add_user">
+							<a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">
 								<i class="fa fa-user-plus" aria-hidden="true"></i> {{ t('user.add') }}
-							</button>
+							<a>
 						</span>
 						<h3><i class="fa fa-table"></i> {{ t('user.list') }}</h3>
 					</div>
@@ -22,11 +22,12 @@
 									<tr>
 										<th><input type="checkbox" name="check_all" id="check-all"></th>
 										<th>{{ t('shared.stt') }}</th>
-										<th>{{ t('user.th.name') }}</th>
-										<th>{{ t('user.th.email') }}</th>
-										<th>{{ t('user.th.role') }}</th>
-										<th>{{ t('user.th.status') }}</th>
-										<th>{{ t('user.th.action') }}</th>
+										<th>{{ t('user.name') }}</th>
+										<th>{{ t('user.email') }}</th>
+										<th>{{ t('user.phone') }}</th>
+										<th>{{ t('user.role') }}</th>
+										<th>{{ t('user.status') }}</th>
+										<th>{{ t('user.action') }}</th>
 									</tr>
 								</thead>
 								<tbody>

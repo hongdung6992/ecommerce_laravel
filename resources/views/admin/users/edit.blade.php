@@ -11,7 +11,7 @@
             <h3><i class="fa fa-hand-pointer-o"></i> {{ t('user.edit') }}</h3>
           </div>
           <div class="card-body">
-            {!! Form::model(['method' => 'PUT', 'route' => ['user.update', 1]]) !!}
+            {!! Form::model($user, ['method' => 'PUT', 'route' => ['user.update', $user->id]]) !!}
             @include('admin.users._form')
             {!! Form::close() !!}
           </div>

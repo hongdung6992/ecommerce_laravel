@@ -7,9 +7,11 @@
     "back": "Quay lại"
   },
   "status": {
-    "active": "Kích hoạt",
+    "activated": "Kích hoạt",
     "yes": "Có",
-    "no": "Không"
+    "no": "Không",
+    "active": "Đang hoạt động",
+    "inactive": "Không hoạt động"
   },
   "auth": {
     "login": "Đăng nhập",
@@ -24,7 +26,8 @@
   },
   "validate": {
     "required": "không được để trống",
-    "invalid": "không hợp lệ"
+    "invalid": "không hợp lệ",
+    "exist" : "đã tồn tại"
   },
   "message": {
     "success": ":param thành công",
@@ -42,6 +45,7 @@
     "email": "Email",
     "phone": "Số điện thoại",
     "role": "Vai trò",
+    "status": "Trạng thái",
     "action": "Xử lý",
     "placeholder": {
       "name": "Nhập họ và tên",

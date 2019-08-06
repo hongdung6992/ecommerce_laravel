@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -13,7 +15,8 @@ class UserController extends Controller
       'parent' => t('user.manage'),
       'level_1' => t('user.list')
     ];
-    return view('admin.users.index', compact('breadcrumbs'));
+    $users = User::all();
+    return view('admin.users.index', compact('breadcrumbs', 'users'));
   }
 
   public function create()
@@ -25,9 +28,17 @@ class UserController extends Controller
     return view('admin.users.create', compact('breadcrumbs'));
   }
 
-  public function store(Request $request)
+  public function store(UserRequest $request)
   {
-    //
+    $user = new User;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->password = str_random(8);
+    $user->role_id = $request->role_id;
+    $user->status = $request->status;
+    $user->remember_token = $request->_token;
+    $user->save();
   }
 
   public function show($id)
@@ -41,12 +52,22 @@ class UserController extends Controller
       'parent' => t('user.manage'),
       'level_1' => t('user.edit')
     ];
-    return view('admin.users.edit', compact('breadcrumbs'));
+    $user = User::findOrFail($id);
+    return view('admin.users.edit', compact('breadcrumbs', 'user'));
   }
 
-  public function update()
+  public function update(Request $request, $id)
   {
-    //
+    $userRequest = new UserRequest;
+    $this->validate($request, $userRequest->rules(true, $id), $userRequest->messages(), $userRequest->attributes());
+    $user = User::findOrFail($id);    
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->role_id = $request->role_id;
+    $user->status = $request->status;
+    $user->remember_token = $request->_token;
+    $user->save();
   }
 
   public function destroy($id)
