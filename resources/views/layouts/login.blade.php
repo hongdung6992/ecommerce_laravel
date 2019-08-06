@@ -33,7 +33,7 @@
   </div>
   {!! Form::close() !!}
 </div>
-@include('admin.partials.message');
+@include('admin.shared.message');
 <div class="card-footer">
   <div class="d-flex justify-content-center links">
     {{ t('auth.have_account') }}<a href="#">{{ t('auth.register') }}</a>

@@ -4,6 +4,23 @@
   padding-left: 5px;
 }
 
+.status {
+  font-size: 0.9rem !important;
+  width: 130px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  display: block;
+  color: #fff;
+}
+
+.status-active {
+  background-color: #007bff;
+}
+
+.status-inactive {
+  background-color: #6c757d;
+}
+
 /* Made with love by Mutiullah Samim*/
 
 html#auth,

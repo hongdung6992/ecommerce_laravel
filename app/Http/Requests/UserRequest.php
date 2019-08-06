@@ -27,7 +27,7 @@ class UserRequest extends FormRequest
   {
     $commun = [
       'name' => 'required',
-      'email' => 'required|email|unique:users,email,'.$id,
+      'email' => 'nullable|email|unique:users,email,'.$id,
       'phone' => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
     ];
 

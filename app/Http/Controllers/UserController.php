@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserMail;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-  
+
   public function index()
   {
     $breadcrumbs = [
@@ -31,14 +34,24 @@ class UserController extends Controller
   public function store(UserRequest $request)
   {
     $user = new User;
+    $password = str_random(8);
     $user->name = $request->name;
     $user->email = $request->email;
     $user->phone = $request->phone;
-    $user->password = str_random(8);
+    $user->password = Hash::make($password);
     $user->role_id = $request->role_id;
     $user->status = $request->status;
     $user->remember_token = $request->_token;
-    $user->save();
+    if ($user->save()) {
+      $data = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => $password
+      ];
+
+      Mail::to($request->email)->send(new UserMail($data));
+      return redirect()->route('user.index')->with(['flash_level' => 'alert-success', 'flash_message' => t('user.success_add')]);
+    }
   }
 
   public function show($id)
@@ -53,21 +66,23 @@ class UserController extends Controller
       'level_1' => t('user.edit')
     ];
     $user = User::findOrFail($id);
-    return view('admin.users.edit', compact('breadcrumbs', 'user'));
+    $disabled = 'disabled';
+    return view('admin.users.edit', compact('breadcrumbs', 'user', 'disabled'));
   }
 
   public function update(Request $request, $id)
   {
     $userRequest = new UserRequest;
     $this->validate($request, $userRequest->rules(true, $id), $userRequest->messages(), $userRequest->attributes());
-    $user = User::findOrFail($id);    
+    $user = User::findOrFail($id);
     $user->name = $request->name;
-    $user->email = $request->email;
     $user->phone = $request->phone;
     $user->role_id = $request->role_id;
     $user->status = $request->status;
     $user->remember_token = $request->_token;
-    $user->save();
+    if ($user->save()) {
+      return redirect()->route('user.index')->with(['flash_level' => 'alert-success delay', 'flash_message' => t('user.success_edit')]);
+    }
   }
 
   public function destroy($id)

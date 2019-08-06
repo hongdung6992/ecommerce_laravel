@@ -3,7 +3,8 @@
 @section('content')
 <div class="content">
 	<div class="container-fluid">
-		@include('admin.partials.breadcrumb')
+		@include('admin.shared.breadcrumb')
+		@include('admin.shared.message')
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="card mb-3">

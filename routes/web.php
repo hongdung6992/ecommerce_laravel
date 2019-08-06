@@ -29,7 +29,7 @@ Route::get('logout', 'AdminController@logout')->name('logout');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
   Route::get('/', 'DashboardController@index')->name('dashboard');
   Route::group(['prefix' => 'user'], function () {
-    Route::get('/', 'UserController@index');
+    Route::get('/', 'UserController@index')->name('user.index');
     Route::get('create', 'UserController@create')->name('user.create');
     Route::post('create', 'UserController@store')->name('user.store');
     Route::get('edit/{id}', 'UserController@edit')->name('user.edit');

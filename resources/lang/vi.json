@@ -4,7 +4,8 @@
   "shared": {
     "stt": "STT", 
     "save": "Lưu",
-    "back": "Quay lại"
+    "back": "Quay lại",
+    "error": "Có lỗi xảy ra! Vui lòng xem các vấn đề dưới đây"
   },
   "status": {
     "activated": "Kích hoạt",
@@ -47,6 +48,8 @@
     "role": "Vai trò",
     "status": "Trạng thái",
     "action": "Xử lý",
+    "success_add": "Tạo tài khoản người dùng thành công! Vui lòng đăng nhập email đăng ký để lấy mật khẩu",
+    "success_edit": "Chỉnh sửa thông tin người dùng thành công!",
     "placeholder": {
       "name": "Nhập họ và tên",
       "email": "Nhập địa chỉ email",

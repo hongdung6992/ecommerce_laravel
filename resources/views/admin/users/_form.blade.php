@@ -9,7 +9,7 @@
 </div>
 <div class="form-group">
   {!! Form::label('email', t('user.email'), ['class' => 'required']) !!}
-  {!! Form::text('email', isset($user) ? $user->email : '', ['class' => ($errors->has('email')) ? 'form-control parsley-error' : 'form-control','placeholder' => t('user.placeholder.email')]) !!}
+  {!! Form::text('email', isset($user) ? $user->email : '', ['class' => ($errors->has('email')) ? 'form-control parsley-error' : 'form-control','placeholder' => t('user.placeholder.email'), isset($disabled) ? 'disabled' : '']) !!}
   @if ($errors->has('email'))
   <ul class="parsley-errors-list filled" id="parsley-id-5">
     <li class="parsley-required">{{ $errors->first('email') }}</li>
