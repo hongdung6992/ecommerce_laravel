@@ -34,7 +34,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('create', 'UserController@store')->name('user.store');
     Route::get('edit/{id}', 'UserController@edit')->name('user.edit');
     Route::put('edit/{id}', 'UserController@update')->name('user.update');
-    Route::delete('delete/{id}', 'UserController@destroy')->name('user.delete');
+    Route::delete('delete', 'UserController@destroy')->name('user.delete');
+    Route::delete('multiple-delete', 'UserController@multipleDestroy')->name('user.multipleDelete');
   });
 });
 

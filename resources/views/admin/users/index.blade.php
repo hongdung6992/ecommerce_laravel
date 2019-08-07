@@ -3,8 +3,8 @@
 @section('content')
 <div class="content">
 	<div class="container-fluid">
-		@include('admin.shared.breadcrumb')
-		@include('admin.shared.message')
+		@include('admin.shared._breadcrumb')
+		@include('admin.shared._message')
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div class="card mb-3">
@@ -12,8 +12,12 @@
 						<span class="pull-right">
 							<a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">
 								<i class="fa fa-user-plus" aria-hidden="true"></i> {{ t('user.add') }}
-							<a>
+							</a>
+							<button class="btn btn-danger btn-sm btn-multiple" data-target="#multipleDelete" data-toggle="modal">
+								<i class="fa fa-trash"></i> {{ t('user.delete') }}
+							</button>
 						</span>
+
 						<h3><i class="fa fa-table"></i> {{ t('user.list') }}</h3>
 					</div>
 					<div class="card-body">
@@ -21,7 +25,7 @@
 							<table id="example1" class="table table-bordered table-hover display">
 								<thead>
 									<tr>
-										<th><input type="checkbox" name="check_all" id="check-all"></th>
+										<th class="text-center"><input type="checkbox" name="check_all" id="check-all"></th>
 										<th>{{ t('shared.stt') }}</th>
 										<th>{{ t('user.name') }}</th>
 										<th>{{ t('user.email') }}</th>
@@ -40,6 +44,8 @@
 				</div><!-- end card-->
 			</div>
 		</div>
+		@include('admin.shared._modal_confirm_delete')
+		@include('admin.shared._modal_confirm_multiple_delete')
 	</div>
 	<!-- END container-fluid -->
 </div>

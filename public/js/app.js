@@ -95,7 +95,9 @@
 
 __webpack_require__(/*! ./common */ "./resources/js/common.js");
 
-__webpack_require__(/*! ./datatable */ "./resources/js/datatable.js"); // $(document).ready(function () {
+__webpack_require__(/*! ./datatable */ "./resources/js/datatable.js");
+
+__webpack_require__(/*! ./user */ "./resources/js/user.js"); // $(document).ready(function () {
 //   // data-tables
 //   $('#example1').DataTable();
 //   // counter-up
@@ -201,8 +203,48 @@ __webpack_require__(/*! ./datatable */ "./resources/js/datatable.js"); // $(docu
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// fadeOut flash message alert
 $(document).ready(function () {
   $('.delay').delay(2000).fadeOut(2000);
+}); // select checkbox + .btn-multiple status
+
+$(document).ready(function () {
+  $('#check-all').change(function () {
+    $('.checkbox').prop('checked', $(this).prop('checked'));
+
+    if ($('#check-all').prop('checked') == true) {
+      $('.btn-multiple').removeAttr('style');
+    }
+
+    if ($('#check-all').prop('checked') == false) {
+      $('.btn-multiple').css('display', 'none');
+    }
+  });
+  $('.checkbox').change(function () {
+    if ($(this).prop('checked') == false) {
+      $('#check-all').prop('checked', false);
+    }
+
+    if ($('.checkbox:checked').length == $('.checkbox').length) {
+      $('#check-all').prop('checked', true);
+    }
+  });
+
+  if ($('.checkbox').prop('checked') == false) {
+    $('.btn-multiple').css('display', 'none');
+  }
+
+  $('.checkbox').each(function () {
+    $(this).on('change', function () {
+      if ($(this).prop('checked') == true) {
+        $('.btn-multiple').removeAttr('style');
+      }
+
+      if ($('.checkbox:checked').length == 0) {
+        $('.btn-multiple').css('display', 'none');
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -294,6 +336,87 @@ $(document).ready(function () {
     });
   });
 });
+
+/***/ }),
+
+/***/ "./resources/js/user.js":
+/*!******************************!*\
+  !*** ./resources/js/user.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// delete single user
+$(document).ready(function () {
+  $('#delete').on('shown.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var id = button.data('id');
+    $('#agree-delete').on('click', function () {
+      $.ajax({
+        type: "DELETE",
+        cache: false,
+        url: $(this).data('url'),
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+        },
+        data: {
+          id: id
+        },
+        success: function success(data, status) {
+          if (status == 'success') {
+            $('button[data-id = ' + data.id + ']').parents('tr').fadeOut();
+            showAlert(data.flash_level, data.flash_message);
+          }
+        }
+      });
+    });
+  });
+}); // multiple-delete users
+
+$(document).ready(function () {
+  $('#multipleDelete').on('shown.bs.modal', function (e) {
+    var ids = [];
+    $('.checkbox:checked').each(function () {
+      ids.push($(this).data('id'));
+    });
+
+    if (ids.length > 0) {
+      $('#agree-multiple-delete').on('click', function () {
+        $.ajax({
+          type: "DELETE",
+          cache: false,
+          url: $(this).data('url'),
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+          },
+          data: {
+            ids: ids
+          },
+          success: function success(data, status) {
+            if (status == 'success') {
+              $('.checkbox:checked').each(function () {
+                $(this).parents('tr').fadeOut();
+              });
+              showAlert(data.flash_level, data.flash_message);
+            }
+          }
+        });
+      });
+    }
+  });
+});
+
+function showAlert($class, $message) {
+  var alert = '';
+  alert += '<div class="alert ' + $class + ' alert-dismissible fade show mb-3" role = "alert" >';
+  alert += '<p class="m-0">' + $message + '</p>';
+  alert += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+  alert += '<span aria-hidden="true">×</span>';
+  alert += '</button>';
+  alert += '</div>';
+  $('.breadcrumb-holder').after(alert);
+  $('.delay').delay(2000).fadeOut(2000);
+}
 
 /***/ }),
 

@@ -14,6 +14,13 @@
     "active": "Đang hoạt động",
     "inactive": "Không hoạt động"
   },
+  "modal_confirm_delete": {
+    "title" : "Xóa :param",
+    "content": "Đối tượng bạn chọn sẽ bị xóa vĩnh viễn!",
+    "confirm": "Bạn có chắc chắn muốn xóa?",
+    "agree": "Đồng ý",
+    "close": "Đóng"
+  },
   "auth": {
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
@@ -35,6 +42,7 @@
     "false": ":param không đúng"
   },
   "user": {
+    "user": "người dùng",
     "manage": "Quản lý người dùng",
     "create": "Thêm mới người dùng",
     "edit": "Chỉnh sửa người dùng",
@@ -50,6 +58,7 @@
     "action": "Xử lý",
     "success_add": "Tạo tài khoản người dùng thành công! Vui lòng đăng nhập email đăng ký để lấy mật khẩu",
     "success_edit": "Chỉnh sửa thông tin người dùng thành công!",
+    "success_delete": "Xóa người dùng thành công!",
     "placeholder": {
       "name": "Nhập họ và tên",
       "email": "Nhập địa chỉ email",

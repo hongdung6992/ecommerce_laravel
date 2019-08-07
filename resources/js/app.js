@@ -1,5 +1,6 @@
 require('./common');
 require('./datatable');
+require('./user');
 
 
 // $(document).ready(function () {
