@@ -63,6 +63,7 @@
       "name": "Nhập họ và tên",
       "email": "Nhập địa chỉ email",
       "phone": "Nhập số điện thoại"
-    }
+    },
+    "note": "Chú ý nhập chính xác địa chỉ email, mật khẩu đăng nhập sẽ được gửi về email người dùng!"
   }
 }

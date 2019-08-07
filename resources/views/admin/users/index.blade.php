@@ -18,7 +18,7 @@
 							</button>
 						</span>
 
-						<h3><i class="fa fa-table"></i> {{ t('user.list') }}</h3>
+						<h3><i class="fa fa-vcard-o"></i> {{ t('user.list') }}</h3>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
