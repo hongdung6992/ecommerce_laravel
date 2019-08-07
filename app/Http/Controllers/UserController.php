@@ -85,8 +85,21 @@ class UserController extends Controller
     }
   }
 
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    //
+    if ($request->ajax()) {
+      $user = User::findOrFail($request->id);
+      $user->delete();
+      return ['id' => $request->id, 'flash_level' => 'alert-success delay', 'flash_message' => t('user.success_delete')];
+    }
+  }
+
+  public function multipleDestroy(Request $request)
+  {
+    if ($request->ajax()) {
+      $users = User::whereIn('id', $request->ids);
+      $users->delete();
+      return ['flash_level' => 'alert-success delay', 'flash_message' => t('user.success_delete')];
+    }
   }
 }

@@ -1,29 +1,17 @@
 <div class="form-group">
   {!! Form::label('name', t('user.name'), ['class' => 'required']) !!}
-  {!! Form::text('name', isset($user) ? $user->name : '', ['class' => ($errors->has('name')) ? 'form-control parsley-error' : 'form-control', 'placeholder' => t('user.placeholder.name')]) !!}
-  @if ($errors->has('name'))
-  <ul class="parsley-errors-list filled" id="parsley-id-5">
-    <li class="parsley-required">{{ $errors->first('name') }}</li>
-  </ul>
-  @endif
+  {!! Form::text('name', isset($user) ? $user->name : '', ['class' => "form-control ($errors->has('name')) ? 'parsley-error' : ''", 'placeholder' => t('user.placeholder.name')]) !!}
+  @include('admin.shared._validate_error', ['fillable' => 'name'])
 </div>
 <div class="form-group">
   {!! Form::label('email', t('user.email'), ['class' => 'required']) !!}
-  {!! Form::text('email', isset($user) ? $user->email : '', ['class' => ($errors->has('email')) ? 'form-control parsley-error' : 'form-control','placeholder' => t('user.placeholder.email'), isset($disabled) ? 'disabled' : '']) !!}
-  @if ($errors->has('email'))
-  <ul class="parsley-errors-list filled" id="parsley-id-5">
-    <li class="parsley-required">{{ $errors->first('email') }}</li>
-  </ul>
-  @endif
+  {!! Form::text('email', isset($user) ? $user->email : '', ['class' => "form-control ($errors->has('email')) ? 'parsley-error' : ''",'placeholder' => t('user.placeholder.email'), isset($disabled) ? 'disabled' : '']) !!}
+  @include('admin.shared._validate_error', ['fillable' => 'email'])
 </div>
 <div class="form-group">
   {!! Form::label('phone', t('user.phone')) !!}
-  {!! Form::text('phone', isset($user) ? $user->phone : '', ['class' => ($errors->has('phone')) ? 'form-control parsley-error' : 'form-control', 'placeholder' => t('user.placeholder.phone')]) !!}
-  @if ($errors->has('phone'))
-  <ul class="parsley-errors-list filled" id="parsley-id-5">
-    <li class="parsley-required">{{ $errors->first('phone') }}</li>
-  </ul>
-  @endif
+  {!! Form::text('phone', isset($user) ? $user->phone : '', ['class' => "form-control ($errors->has('phone')) ? 'parsley-error' : ''", 'placeholder' => t('user.placeholder.phone')]) !!}
+  @include('admin.shared._validate_error', ['fillable' => 'phone'])
 </div>
 <div class="form-group">
   {!! Form::label('role', t('user.role')) !!}

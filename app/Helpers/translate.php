@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Config;
 
 if (!function_exists('t')) {
   function t($key, $params = [])
