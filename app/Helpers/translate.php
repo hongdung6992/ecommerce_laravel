@@ -1,10 +1,9 @@
 <?php
-use Illuminate\Support\Facades\Config;
 
 if (!function_exists('t')) {
   function t($key, $params = [])
   {
-    $filePath = resource_path('/lang/' . Config::get('app.locale') . '.json');
+    $filePath = resource_path('/lang/' . config('app.locale') . '.json');
 
     if (!is_readable($filePath)) {
       return false;
