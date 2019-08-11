@@ -1,7 +1,7 @@
 require('./common');
 require('./datatable');
 require('./user');
-
+require('./category');
 
 // $(document).ready(function () {
 //   // data-tables

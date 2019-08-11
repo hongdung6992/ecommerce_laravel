@@ -22,16 +22,16 @@ class UserRequest extends FormRequest
    * @return array
    */
 
-   // \A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  // \A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   public static function rules($update = false, $id = null)
   {
     $commun = [
       'name' => 'required',
-      'email' => 'nullable|email|unique:users,email,'.$id,
+      'email' => 'nullable|email|unique:users,email,' . $id,
       'phone' => 'nullable|regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
     ];
 
-    if($update) return $commun;
+    if ($update) return $commun;
 
     return array_merge($commun, [
       'email' => 'required|email|unique:users'
@@ -52,7 +52,7 @@ class UserRequest extends FormRequest
     return [
       '*.required' => ':attribute ' . t('validate.required'),
       'email.email' => ':attribute ' . t('validate.invalid'),
-      'email.unique' => ':attribute ' .t('validate.exist'),
+      'email.unique' => ':attribute ' . t('validate.exist'),
       'phone.numeric' => ':attribute ' . t('validate.invalid'),
       'phone.regex' => ':attribute ' . t('validate.invalid'),
       'phone.min' => ':attribute ' . t('validate.invalid')

@@ -38,7 +38,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/translate.php"
+            "app/Helpers/translate.php",
+            "app/Helpers/recursive.php"
         ],
         "classmap": [
             "database/seeds",

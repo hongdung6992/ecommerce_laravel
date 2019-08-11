@@ -17,7 +17,6 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-// Route::get('login', 'AdminController@login');
 Route::get('login', 'AdminController@getLogin')->name('login');
 Route::post('login', 'AdminController@postLogin');
 Route::get('register', 'AdminController@register');
@@ -36,6 +35,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::put('edit/{id}', 'UserController@update')->name('user.update');
     Route::delete('delete', 'UserController@destroy')->name('user.delete');
     Route::delete('multiple-delete', 'UserController@multipleDestroy')->name('user.multipleDelete');
+  });
+
+  Route::group(['prefix' => 'category'], function () {
+    Route::get('/', 'CategoryController@index')->name('category.index');
+    // Route::get('create', 'CategoryController@create')->name('category.create');
+    Route::post('create', 'CategoryController@store')->name('category.store');
+    Route::get('edit', 'CategoryController@edit')->name('category.edit');
+    Route::put('edit', 'CategoryController@update')->name('category.update');
+    Route::delete('delete', 'CategoryController@destroy')->name('category.delete');
+    Route::delete('multiple-delete', 'CategoryController@multipleDestroy')->name('category.multipleDelete');
+    Route::put('move', 'CategoryController@move')->name('category.move');
   });
 });
 

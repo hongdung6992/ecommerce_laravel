@@ -10,6 +10,8 @@
 	<link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 	<link rel="stylesheet" href="{{ mix('css/all.css') }}">
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+	<script src="{{ mix('js/all.js') }}"></script>
+	<script src="{{ mix('js/app.js') }}"></script>
 </head>
 
 <body class="adminbody">
@@ -28,7 +30,5 @@
 		@include('admin.partials.footer')
 
 	</div>
-	<script src="{{ mix('js/all.js') }}" defer></script>
-	<script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
   "home": "Trang chủ",
   "dashboard": "Bảng điều khiển",
   "shared": {
-    "stt": "STT", 
+    "stt": "STT",
     "save": "Lưu",
     "back": "Quay lại",
     "error": "Có lỗi xảy ra! Vui lòng xem các vấn đề dưới đây"
@@ -15,7 +15,7 @@
     "inactive": "Không hoạt động"
   },
   "modal_confirm_delete": {
-    "title" : "Xóa :param",
+    "header": "Xóa đối tượng",
     "content": "Đối tượng bạn chọn sẽ bị xóa vĩnh viễn!",
     "confirm": "Bạn có chắc chắn muốn xóa?",
     "agree": "Đồng ý",
@@ -35,7 +35,7 @@
   "validate": {
     "required": "không được để trống",
     "invalid": "không hợp lệ",
-    "exist" : "đã tồn tại"
+    "exist": "đã tồn tại"
   },
   "message": {
     "success": ":param thành công",
@@ -65,5 +65,29 @@
       "phone": "Nhập số điện thoại"
     },
     "note": "Chú ý nhập chính xác địa chỉ email, mật khẩu đăng nhập sẽ được gửi về email người dùng!"
+  },
+  "category": {
+    "category": "Danh mục",
+    "manage": "Quản lý danh mục",
+    "create": "Thêm mới danh mục",
+    "edit": "Chỉnh sửa danh mục",
+    "add": "Thêm",
+    "update": "Sửa",
+    "delete": "Xóa",
+    "name": "Tên danh mục",
+    "parent_category": "Danh mục cha",
+    "description": "Mô tả",
+    "status": "Trạng thái",
+    "action": "Xử lý",
+    "success_add": "Thêm mới danh mục thành công",
+    "success_edit": "Chỉnh sửa danh mục thành công!",
+    "success_delete": "Xóa danh mục thành công!",
+    "move": "Di chuyển danh mục",
+    "move_to": "Di chuyển đến",
+    "root": "Danh mục gốc",
+    "placeholder": {
+      "name": "Nhập tên danh mục",
+      "description": "Nhập mô tả"
+    }
   }
 }

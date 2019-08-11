@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
         'public/css/style.css',
         'public/plugins/datatables/dataTables.bootstrap4.min.css',
         'public/plugins/datatables/switchery/switchery.min.css',
+        'public/plugins/jstree/style.css',
         'public/font/css/font-awesome.min.css'
     ], 'public/css/all.css')
     .scripts([
@@ -37,6 +38,7 @@ mix.js('resources/js/app.js', 'public/js')
         'public/plugins/datatables/dataTables.bootstrap4.min.js',
         'public/plugins/switchery/switchery.min.js',
         'public/plugins/waypoints/lib/jquery.waypoints.min.js',
-        'public/plugins/counterup/jquery.counterup.min.js'
+        'public/plugins/counterup/jquery.counterup.min.js',
+        'public/plugins/jstree/jstree.min.js'
     ], 'public/js/all.js')
     .version();
