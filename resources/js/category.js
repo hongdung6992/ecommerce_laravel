@@ -58,7 +58,7 @@ $(document).ready(function () {
             'action': function () {
               $('#delete').modal('show');
               var id = $('.jstree-node[aria-selected=true]').data('id');
-              var url = $('.tree-cate').data('url');
+              var url = $('.jstree-category').data('url');
               $('#agree-delete').on('click', function () {
                 categoryDelete({ 'id': id }, url)
               })
@@ -71,7 +71,6 @@ $(document).ready(function () {
             'action': function () {
               $('#modal_move_category').modal('show');
               var id = $('.jstree-node[aria-selected=true]').data('id');
-
               $('#category-move-form option[value="' + id + '"').remove();
               $('#category-move-form option[parent_id="' + id + '"').remove();
 
@@ -99,6 +98,7 @@ $(document).ready(function () {
   })
 })
 
+// get category fill in form to update
 function getCategory() {
   var id = $('.jstree-node[aria-selected=true]').data('id');
   var url = $('#category-edit-form').attr('data-url');
@@ -120,6 +120,7 @@ function getCategory() {
   });
 }
 
+// Delete single category
 function categoryDelete(data, url) {
   $.ajax({
     type: "DELETE",
@@ -134,6 +135,7 @@ function categoryDelete(data, url) {
   });
 }
 
+// Create and update category
 function categoryCreateUpdate(method, url, data) {
   $.ajax({
     type: method,

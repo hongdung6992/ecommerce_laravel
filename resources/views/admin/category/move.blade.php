@@ -14,7 +14,6 @@
             <div class="form-group">
               {!! Form::label('parent_id', t('category.move_to')) !!}
               <select name="parent_id" class="form-control">
-                <option value="">{{ t('category.root') }}</option>
                 {{ categorySelect($categories) }}
               </select>
             </div>

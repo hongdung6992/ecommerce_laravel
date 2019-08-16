@@ -1225,7 +1225,7 @@ $(document).ready(function () {
             'action': function action() {
               $('#delete').modal('show');
               var id = $('.jstree-node[aria-selected=true]').data('id');
-              var url = $('.tree-cate').data('url');
+              var url = $('.jstree-category').data('url');
               $('#agree-delete').on('click', function () {
                 categoryDelete({
                   'id': id
@@ -1265,7 +1265,7 @@ $(document).ready(function () {
       }
     }
   });
-});
+}); // get category fill in form to update
 
 function getCategory() {
   var id = $('.jstree-node[aria-selected=true]').data('id');
@@ -1290,7 +1290,8 @@ function getCategory() {
       }
     }
   });
-}
+} // Delete single category
+
 
 function categoryDelete(data, url) {
   $.ajax({
@@ -1306,7 +1307,8 @@ function categoryDelete(data, url) {
       }
     }
   });
-}
+} // Create and update category
+
 
 function categoryCreateUpdate(method, url, data) {
   $.ajax({

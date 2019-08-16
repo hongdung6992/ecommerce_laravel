@@ -12,7 +12,9 @@
 						<h3><i class="fa fa-vcard-o"></i> {{ t('category.category') }}</h3>
 					</div>
 					<div class="card-body">
-						@include('admin.category._category_tree')
+						<div id="dragdropTree" class="jstree-category" data-url="{{ route('category.delete') }}">
+							{{ categoryTree($categories) }}
+						</div>
 					</div>
 				</div><!-- end card-->
 			</div>

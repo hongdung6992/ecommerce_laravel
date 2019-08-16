@@ -49,6 +49,8 @@ class CategoryController extends Controller
   public function destroy(Request $request)
   {
     $category = Category::findOrFail($request->id);
+    $category_child = Category::where('parent_id', $category->id);
+    $category_child->update(['parent_id' => $category->parent_id]);
     $category->delete();
   }
 
