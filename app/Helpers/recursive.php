@@ -4,7 +4,7 @@ function categoryTree($data, $parent_id = null)
   foreach ($data as $value) {
     if ($value->parent_id == $parent_id) {
       echo '<ul>';
-      echo '<li data-id="'.$value->id.'">' . $value->name;
+      echo '<li class="category-item" data-id="'.$value->id.'">' . $value->name;
       categoryTree($data, $value->id);
       echo '</li>';
       echo '</ul>';

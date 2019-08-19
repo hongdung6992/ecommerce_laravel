@@ -71,9 +71,6 @@ $(document).ready(function () {
             'action': function () {
               $('#modal_move_category').modal('show');
               var id = $('.jstree-node[aria-selected=true]').data('id');
-              $('#category-move-form option[value="' + id + '"').remove();
-              $('#category-move-form option[parent_id="' + id + '"').remove();
-
               $('#category-move-form').on('submit', function (e) {
                 var parent_id = $('#category-move-form select[name="parent_id"]').val();
                 var url = $(this).data('url');

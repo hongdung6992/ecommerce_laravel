@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 use App\Category;
+use App\Product;
 use Illuminate\Validation\Validator;
 use function Opis\Closure\unserialize;
 
@@ -14,11 +15,12 @@ class CategoryController extends Controller
   public function index()
   {
     $breadcrumbs = [
-      'parent' => t('category.manage'),
-      'level_1' => t('category.category')
+      'parent' => t('product.manage'),
+      'level_1' => t('product.title')
     ];
     $categories = Category::all();
-    return view('admin.category.index', compact('breadcrumbs', 'categories'));
+    $products = Product::all();
+    return view('admin.category.index', compact('breadcrumbs', 'categories', 'products'));
   }
 
   public function store(CategoryRequest $request)

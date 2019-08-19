@@ -22,6 +22,6 @@
   {!! Form::select('status',config('enum.boolean'), isset($user) ? $user->status : 1 , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group text-right m-b-0">
-  {!! Form::submit(t('shared.save'), ['class' => 'btn btn-primary']) !!}
-  <a href="#" class="btn btn-secondary m-l-5">{{ t('shared.back') }}</a>
+  {!! Form::submit(t('button.save'), ['class' => 'btn btn-primary']) !!}
+  <a href="{{ route('user.index') }}" class="btn btn-secondary m-l-5">{{ t('button.back') }}</a>
 </div>

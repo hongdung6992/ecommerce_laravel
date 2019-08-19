@@ -37,15 +37,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::delete('multiple-delete', 'UserController@multipleDestroy')->name('user.multipleDelete');
   });
 
-  Route::group(['prefix' => 'category'], function () {
+  Route::group(['prefix' => 'product'], function () {
     Route::get('/', 'CategoryController@index')->name('category.index');
-    // Route::get('create', 'CategoryController@create')->name('category.create');
     Route::post('create', 'CategoryController@store')->name('category.store');
     Route::get('edit', 'CategoryController@edit')->name('category.edit');
     Route::put('edit', 'CategoryController@update')->name('category.update');
     Route::delete('delete', 'CategoryController@destroy')->name('category.delete');
-    Route::delete('multiple-delete', 'CategoryController@multipleDestroy')->name('category.multipleDelete');
     Route::put('move', 'CategoryController@move')->name('category.move');
+
+    Route::get('index', 'ProductController@index')->name('product.index');
+    Route::post('product-create', 'ProductController@store')->name('product.store');
+    Route::get('product-edit', 'ProductController@edit')->name('product.edit');
+    Route::put('product-edit', 'ProductController@update')->name('product.update');
+    Route::delete('product-delete', 'ProductController@destroy')->name('product.delete');
+    Route::delete('multiple-delete', 'ProductController@multipleDestroy')->name('product.multipleDelete');
   });
 });
 

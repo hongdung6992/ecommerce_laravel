@@ -1059,102 +1059,9 @@ __webpack_require__(/*! ./datatable */ "./resources/js/datatable.js");
 
 __webpack_require__(/*! ./user */ "./resources/js/user.js");
 
-__webpack_require__(/*! ./category */ "./resources/js/category.js"); // $(document).ready(function () {
-//   // data-tables
-//   $('#example1').DataTable();
-//   // counter-up
-//   $('.counter').counterUp({
-//     delay: 10,
-//     time: 600
-//   });
-// });
-// var ctx1 = document.getElementById("lineChart").getContext('2d');
-// var lineChart = new Chart(ctx1, {
-//   type: 'bar',
-//   data: {
-//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-//     datasets: [{
-//       label: 'Dataset 1',
-//       backgroundColor: '#3EB9DC',
-//       data: [10, 14, 6, 7, 13, 9, 13, 16, 11, 8, 12, 9]
-//     }, {
-//       label: 'Dataset 2',
-//       backgroundColor: '#EBEFF3',
-//       data: [12, 14, 6, 7, 13, 6, 13, 16, 10, 8, 11, 12]
-//     }]
-//   },
-//   options: {
-//     tooltips: {
-//       mode: 'index',
-//       intersect: false
-//     },
-//     responsive: true,
-//     scales: {
-//       xAxes: [{
-//         stacked: true,
-//       }],
-//       yAxes: [{
-//         stacked: true
-//       }]
-//     }
-//   }
-// });
-// var ctx2 = document.getElementById("pieChart").getContext('2d');
-// var pieChart = new Chart(ctx2, {
-//   type: 'pie',
-//   data: {
-//     datasets: [{
-//       data: [12, 19, 3, 5, 2, 3],
-//       backgroundColor: [
-//         'rgba(255,99,132,1)',
-//         'rgba(54, 162, 235, 1)',
-//         'rgba(255, 206, 86, 1)',
-//         'rgba(75, 192, 192, 1)',
-//         'rgba(153, 102, 255, 1)',
-//         'rgba(255, 159, 64, 1)'
-//       ],
-//       label: 'Dataset 1'
-//     }],
-//     labels: [
-//       "Red",
-//       "Orange",
-//       "Yellow",
-//       "Green",
-//       "Blue"
-//     ]
-//   },
-//   options: {
-//     responsive: true
-//   }
-// });
-// var ctx3 = document.getElementById("doughnutChart").getContext('2d');
-// var doughnutChart = new Chart(ctx3, {
-//   type: 'doughnut',
-//   data: {
-//     datasets: [{
-//       data: [12, 19, 3, 5, 2, 3],
-//       backgroundColor: [
-//         'rgba(255,99,132,1)',
-//         'rgba(54, 162, 235, 1)',
-//         'rgba(255, 206, 86, 1)',
-//         'rgba(75, 192, 192, 1)',
-//         'rgba(153, 102, 255, 1)',
-//         'rgba(255, 159, 64, 1)'
-//       ],
-//       label: 'Dataset 1'
-//     }],
-//     labels: [
-//       "Red",
-//       "Orange",
-//       "Yellow",
-//       "Green",
-//       "Blue"
-//     ]
-//   },
-//   options: {
-//     responsive: true
-//   }
-// });
+__webpack_require__(/*! ./category */ "./resources/js/category.js");
+
+__webpack_require__(/*! ./product */ "./resources/js/product.js");
 
 /***/ }),
 
@@ -1240,8 +1147,6 @@ $(document).ready(function () {
             'action': function action() {
               $('#modal_move_category').modal('show');
               var id = $('.jstree-node[aria-selected=true]').data('id');
-              $('#category-move-form option[value="' + id + '"').remove();
-              $('#category-move-form option[parent_id="' + id + '"').remove();
               $('#category-move-form').on('submit', function (e) {
                 var parent_id = $('#category-move-form select[name="parent_id"]').val();
                 var url = $(this).data('url');
@@ -1428,6 +1333,11 @@ $(document).ready(function () {
     $('input[name="slug"]').val(convertSlug(element));
   });
 });
+$(document).ready(function () {
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+});
 
 /***/ }),
 
@@ -1516,6 +1426,66 @@ $(document).ready(function () {
         that.search(this.value).draw();
       }
     });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/product.js":
+/*!*********************************!*\
+  !*** ./resources/js/product.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// get product by category
+$(document).ready(function () {
+  var id = 1;
+  $('#dragdropTree').on('select_node.jstree', function (e, data) {
+    url = $('.data-product').data('url');
+    id = data.node.data.id;
+    $.ajax({
+      type: "GET",
+      url: url,
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+      },
+      data: {
+        'id': id
+      },
+      dataType: "json",
+      success: function success(data, status) {
+        if (data.length > 0) {
+          var xhtml = '';
+          var index = 1;
+          $(data).each(function (e, value) {
+            xhtml += '<tr>';
+            xhtml += '<td>' + index + '</td>';
+            xhtml += '<td>' + value.name + '</td>';
+            xhtml += '<td>' + value.code + '</td>';
+            xhtml += '<td>' + value.color + '</td>';
+            xhtml += '<td>' + value.price + '</td>';
+            xhtml += '<td><img alt="image" style="max-width:90px; height:auto;" src="/images/uploads/' + value.image + '"></td>';
+            xhtml += '<td>';
+            xhtml += '<button class="btn btn-secondary btn-sm"><i class="fa fa-info-circle"></i></button>';
+            xhtml += '<button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>';
+            xhtml += '<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>';
+            xhtml += '</td>';
+            xhtml += '</tr>';
+            $('.data-product table tbody').html(xhtml);
+            index++;
+          });
+        } else {
+          $('.data-product table tbody').html('<tr><td colspan="7" class="dataTables_empty">Đang cập nhật dữ liệu!</td></tr>');
+        }
+      }
+    });
+  });
+});
+$(document).ready(function () {
+  $('#modal_add_product').on('shown.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    console.log(button);
   });
 });
 

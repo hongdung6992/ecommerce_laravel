@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        {!! Form::submit(t('shared.save'), ['class' => 'btn btn-primary test-form']) !!}
+        {!! Form::submit(t('button.save'), ['class' => 'btn btn-primary test-form']) !!}
       </div>
       {!! Form::close() !!}
     </div>

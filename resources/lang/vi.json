@@ -2,10 +2,32 @@
   "home": "Trang chủ",
   "dashboard": "Bảng điều khiển",
   "shared": {
-    "stt": "STT",
-    "save": "Lưu",
-    "back": "Quay lại",
     "error": "Có lỗi xảy ra! Vui lòng xem các vấn đề dưới đây"
+  },
+  "th": {
+    "index": "STT",
+    "action": "Xử lý",
+    "status": "Trạng thái",
+    "user": {
+      "name": "Họ và tên",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "role": "Vai trò"
+    },
+    "product": {
+      "name": "Tên sản phẩm",
+      "code": "Mã sản phẩm",
+      "color": "Màu sản phẩm",
+      "price": "Giá sản phẩm",
+      "image": "Hình ảnh"
+    }
+  },
+  "button": {
+    "add": "Thêm mới",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "save": "Lưu",
+    "back": "Quay lại"
   },
   "status": {
     "activated": "Kích hoạt",
@@ -46,16 +68,11 @@
     "manage": "Quản lý người dùng",
     "create": "Thêm mới người dùng",
     "edit": "Chỉnh sửa người dùng",
-    "add": "Thêm mới",
-    "update": "Chỉnh sửa",
-    "delete": "Xóa",
     "list": "Danh sách người dùng",
     "name": "Họ và tên",
     "email": "Email",
     "phone": "Số điện thoại",
     "role": "Vai trò",
-    "status": "Trạng thái",
-    "action": "Xử lý",
     "success_add": "Tạo tài khoản người dùng thành công! Vui lòng đăng nhập email đăng ký để lấy mật khẩu",
     "success_edit": "Chỉnh sửa thông tin người dùng thành công!",
     "success_delete": "Xóa người dùng thành công!",
@@ -67,13 +84,10 @@
     "note": "Chú ý nhập chính xác địa chỉ email, mật khẩu đăng nhập sẽ được gửi về email người dùng!"
   },
   "category": {
-    "category": "Danh mục",
+    "title": "Danh mục",
     "manage": "Quản lý danh mục",
     "create": "Thêm mới danh mục",
     "edit": "Chỉnh sửa danh mục",
-    "add": "Thêm",
-    "update": "Sửa",
-    "delete": "Xóa",
     "name": "Tên danh mục",
     "parent_category": "Danh mục cha",
     "description": "Mô tả",
@@ -88,6 +102,19 @@
     "placeholder": {
       "name": "Nhập tên danh mục",
       "description": "Nhập mô tả"
-    }
+    },
+    "guide":"Click chuột phải vào tên danh mục để thêm, sửa, xóa hoặc di chuyển danh mục"
+  },
+  "product": {
+    "manage": "Quản lý sản phẩm",
+    "category": "Thuộc danh mục",
+    "title": "Sản phẩm",
+    "create": "Thêm mới sản phẩm",
+    "name": "Tên sản phẩm",
+    "code": "Mã sản phẩm",
+    "color": "Màu sản phẩm",
+    "price": "Giá sản phẩm",
+    "description": "Mô tả sản phẩm",
+    "image": "Hình ảnh"
   }
 }

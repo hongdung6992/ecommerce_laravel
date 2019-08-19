@@ -16,7 +16,8 @@ class CategoriesTableSeeder extends Seeder
       array('id' => 2, 'parent_id' => 1, 'name' => 'Category 1', 'slug' => 'categories-1'),
       array('id' => 3, 'parent_id' => 2, 'name' => 'Category 1.1', 'slug' => 'categories-1-1'),
       array('id' => 4, 'parent_id' => 2, 'name' => 'Category 1.2', 'slug' => 'categories-1-2'),
-      array('id' => 5, 'parent_id' => 3, 'name' => 'Category 1.1.2', 'slug' => 'categories-1-1-2')
+      array('id' => 5, 'parent_id' => 3, 'name' => 'Category 1.1.2', 'slug' => 'categories-1-1-2'),
+      array('id' => 6, 'parent_id' => 1, 'name' => 'Category 2', 'slug' => 'categories-2'),
     ]);
   }
 }

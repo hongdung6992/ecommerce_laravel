@@ -3,7 +3,7 @@
     <div class="col-lg-12">
       <div class="form-group">
         {!! Form::label('name', t('category.name'), ['class' => 'required']) !!}
-        {!! Form::text('name', '', ['class' => 'form-control', 'placholder' => t('category.placholder.name')]) !!}
+        {!! Form::text('name', '', ['class' => 'form-control']) !!}
         {!! Form::hidden('slug') !!}
         {!! Form::hidden('parent_id', '', ['id' => 'parent_id']) !!}
       </div>
@@ -15,5 +15,5 @@
   </div>
 </div>
 <div class="modal-footer">
-  {!! Form::submit(t('shared.save'), ['class' => 'btn btn-primary test-form']) !!}
+  {!! Form::submit(t('button.save'), ['class' => 'btn btn-primary test-form']) !!}
 </div>
